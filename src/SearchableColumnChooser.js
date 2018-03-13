@@ -15,18 +15,18 @@ const SearchableColumnChooser = compose(
   withPropsOnChange(['children', 'filter'], ({ children, filter }) => ({
     filteredChildren: children.filter(c => childMatches(c, filter))
   }))
-)(props => (
+)(({ filter, setFilter, filteredChildren }) => (
   <form style={styles}>
     <FormGroup controlId="searchText">
       <ControlLabel>Search</ControlLabel>
       <FormControl
         type="text"
-        value={props.filter}
+        value={filter}
         placeholder="Column Title"
-        onChange={e => props.setFilter(e.target.value)}
+        onChange={e => setFilter(e.target.value)}
       />
     </FormGroup>
-    <ColumnChooser.Container>{props.filteredChildren}</ColumnChooser.Container>
+    <ColumnChooser.Container>{filteredChildren}</ColumnChooser.Container>
   </form>
 ));
 
