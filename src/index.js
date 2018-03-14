@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+// codesandbox.io doesn't display the column-chooser icon correctly
+// when I use these imports
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import {
   SortingState,
