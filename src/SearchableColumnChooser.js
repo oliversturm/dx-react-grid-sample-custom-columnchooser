@@ -8,7 +8,7 @@ const formStyles = {
 };
 const listStyles = {
   overflow: 'auto',
-  'max-height': '200px'
+  maxHeight: '200px'
 };
 
 const childMatches = (child, filter) =>
