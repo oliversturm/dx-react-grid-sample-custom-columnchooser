@@ -3,8 +3,12 @@ import { ColumnChooser } from '@devexpress/dx-react-grid-bootstrap3';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { compose, withState, withPropsOnChange } from 'recompose';
 
-const styles = {
+const formStyles = {
   padding: '5px'
+};
+const listStyles = {
+  overflow: 'auto',
+  'max-height': '200px'
 };
 
 const childMatches = (child, filter) =>
@@ -16,7 +20,7 @@ const SearchableColumnChooser = compose(
     filteredChildren: children.filter(c => childMatches(c, filter))
   }))
 )(({ filter, setFilter, filteredChildren }) => (
-  <form style={styles}>
+  <form style={formStyles}>
     <FormGroup controlId="searchText">
       <ControlLabel>Search</ControlLabel>
       <FormControl
@@ -26,7 +30,9 @@ const SearchableColumnChooser = compose(
         onChange={e => setFilter(e.target.value)}
       />
     </FormGroup>
-    <ColumnChooser.Container>{filteredChildren}</ColumnChooser.Container>
+    <ColumnChooser.Container style={listStyles}>
+      {filteredChildren}
+    </ColumnChooser.Container>
   </form>
 ));
 
